@@ -18,3 +18,6 @@
 notes.md
 README-template.md
 style-guide.md
+node_modules/
+.gitignore
+.vscode/
