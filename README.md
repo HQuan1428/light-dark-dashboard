@@ -1,6 +1,5 @@
 # Frontend Mentor - Social media dashboard with theme switcher
 
-![Design preview for the Social media dashboard with theme switcher coding challenge](./design/desktop-preview.jpg)
 
 ## Struct app
 ```
@@ -47,7 +46,16 @@ APP
 
 ## Use code
 ```
-npm init -y    # create npm project
-npm install    # install packages 
-gulp           # Run project
+npm init -y                     # create npm project
+npm install                     # install packages
+npm install --global gulp-cli   # install gulp command line 
+gulp                            # Run project
 ```
+
+## Screenshot
+
+### Dark Mode 
+![Desktop](./images/screenshot/dark-mode.png)
+
+### Light Mode
+![Desktop](./images/screenshot/light-mode.png)

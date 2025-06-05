@@ -34,6 +34,7 @@
   --toggle-button: var(--toggle-button-light);
 }
 
+// If system is dark mode
 @media (prefers-color-scheme: dark) {
   :root {
     --background: var(--dark-bg);
