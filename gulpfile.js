@@ -8,3 +8,56 @@ const babel = require('gulp-babel');
 const terser = require('gulp-terser');
 const browsersync = require('browser-sync').create();
 
+
+// Sass task 
+function scssTask() {
+    return src('app/scss/style.scss', { sourcemaps: true })
+        .pipe(sass())
+        .pipe(postcss([autoprefixer(), cssnano()]))
+        .pipe(dest('dist', { sourcemaps: '.' }))
+}
+
+// JavaScript task
+function jsTask() {
+    return src('app/scripts/**/*.js', { sourcemaps: true })
+        .pipe(babel({ presets: ['@babel/preset-env'] }))
+        .pipe(terser())
+        .pipe(dest('dist', { sourcemaps: '.' }));
+}
+
+
+// Browersync task 
+function browsersyncServer(cb) {
+    browsersync.init({
+        server: {
+            baseDir: '.',
+        },
+        notify: {
+            style: {
+                top: 'auto',
+                bottom: '0',
+            },
+        },
+    });
+    cb(); // callback
+}
+function browsersynReaload(cb) {
+    browsersync.reload();
+    cb(); // callback
+}
+
+// Watch task
+function watchTask() {
+    watch('*.html', browsersynReaload);
+    watch(
+        ['app/scss/**/*.scss', 'app/js/**/*.js'],
+        series(scssTask, jsTask, browsersynReaload)
+    );
+}
+
+
+// default export
+exports.default = series(scssTask, browsersyncServer, watchTask);
+
+// Gulp Build Task
+exports.build = series(scssTask, jsTask);
