@@ -1,6 +1,13 @@
 # Frontend Mentor - Social media dashboard with theme switcher
 
 
+## Requirements
+
+Before you start, ensure you have the following requirements:
+- Nodjs with package manager, npm or whatever one you prefer.
+- Chrome or whatever browser you prefer.
+
+
 ## Struct app
 ```
 APP 
@@ -11,14 +18,18 @@ APP
     |   style.scss
     | 
     +---components 
-    |       _index.scss 
-    | 
+    |       _index.scss
+    |       card-grid.scss
+    |       card.scss
+    |       header.scss
+    |       toggle.scss
     +---globals 
     |       _index.scss 
     |       boilerplate.scss 
     |       colors.scss
     |       fonts.scss 
-    |       layout.scss 
+    |       layout.scss
+    |       typography.scss
     \---util 
             _index.scss 
             breakpoints.scss 
